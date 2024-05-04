@@ -17,6 +17,6 @@ class Solution:
             else:
                 ans+=1
                 r-=1
-            print(ans,l,r)
+            # print(ans,l,r)
             
         return ans
