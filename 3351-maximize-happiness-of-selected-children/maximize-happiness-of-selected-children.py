@@ -6,4 +6,6 @@ class Solution:
             temp=happiness[i]-i
             if(temp>0):
                 ans+=temp
+            else:
+                break
         return ans
