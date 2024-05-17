@@ -7,8 +7,7 @@
 class Solution:
     def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
         
-        def rem(root):
-                    
+        def rem(root):        
           if root==None or root.left==None and root.right==None:
             return 
           
@@ -24,9 +23,6 @@ class Solution:
         rem(root)
         rem(root)
         rem(root)
-        # rem(root)
-        # rem(root)
-        # rem(root)
         if root!=None and root.left==None and root.right==None and root.val==target:
           return 
         return root
