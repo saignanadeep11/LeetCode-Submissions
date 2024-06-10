@@ -11,7 +11,7 @@ class Solution:
                 return ans
             rec(root.left,ans)
             rec(root.right,ans)
-            print(ans)
+            # print(ans)
             ans.append(root.val)
             return ans
         ans=rec(root,[])
