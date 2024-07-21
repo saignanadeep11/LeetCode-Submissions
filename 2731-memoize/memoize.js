@@ -5,17 +5,13 @@
 function memoize(fn) {
     memo={}
     return function(...args) {
-        ans=[]
-        // console.log(args,memo);
+        
         if(args in memo){
-            ans.push(memo[args])
+            return memo[args];
         }
-        else{
         k=fn(...args);
         memo[args]=k;
-        ans.push(k);
-        }
-        return ans;
+        return k;
     }
 }
 
