@@ -1,18 +1,26 @@
 class Solution:
     def numTeams(self, rating: List[int]) -> int:
-        ans=0
         n=len(rating)
-        for mid in range(n):
-            left_small=0
-            right_big=0
-            for i in range(mid-1,-1,-1):
-                if rating[mid]>rating[i]:
-                    left_small+=1
-            for i in range(mid+1,n):
-                if rating[mid]<rating[i]:
-                    right_big+=1
-            ans+=left_small*right_big
-            left_big=mid-left_small
-            right_small=n-1-mid-right_big
-            ans+=left_big*right_small
+        inc=[[0]*4 for i in range(n)]
+        dec=[[0]*4 for i in range(n)]
+        for i in range(n):
+            inc[i][1]=1
+            dec[i][1]=1
+        for i in range(2,4):
+            for j in range(n):
+                for k in range(j+1,n):
+                    if rating[k]>rating[j]:
+                        inc[k][i]+=inc[j][i-1]
+                    # print(i,rating[j],rating[k])
+                    # print(inc)
+        for i in range(2,4):
+            for j in range(n):
+                for k in range(j+1,n):
+                    if rating[k]<rating[j]:
+                        dec[k][i]+=dec[j][i-1]
+        ans=0
+        # print(inc,dec)
+        for i in range(n):
+            ans+= inc[i][3]
+            ans+=dec[i][3]
         return ans
