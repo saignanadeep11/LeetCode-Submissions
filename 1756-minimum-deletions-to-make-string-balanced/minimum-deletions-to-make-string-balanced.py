@@ -12,8 +12,8 @@ class Solution:
             cal[i][1]=m
             if s[i]=='a':
                 m+=1
-        # print(cal)
-        ans=sys.maxsize
+        ans=10000000
         for i in range(n):
-            ans=min(ans,cal[i][0]+cal[i][1])
+            if cal[i][0]+cal[i][1]<ans:
+                ans=cal[i][0]+cal[i][1]
         return ans
