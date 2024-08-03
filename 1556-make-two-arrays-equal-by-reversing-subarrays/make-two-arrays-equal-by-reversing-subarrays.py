@@ -6,7 +6,6 @@ class Solution:
         for i in range(n):
             arr1[target[i]]+=1
             arr2[arr[i]]+=1
-        for i in range(n):
-            if arr1[target[i]]!=arr2[target[i]]:
-                return False
+        if arr1!=arr2:
+            return False
         return True
