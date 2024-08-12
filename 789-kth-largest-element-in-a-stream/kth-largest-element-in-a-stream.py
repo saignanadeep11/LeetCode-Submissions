@@ -1,17 +1,17 @@
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
+        self.k=k
         self.n=len(nums)
-        self.k=self.n-k+1
-        self.nums=sorted(nums)
+        nums.sort()
+        self.nums=nums
 
     def add(self, val: int) -> int:
-        i=bisect.bisect_left(self.nums,val)
-        self.nums.insert(i,val)
-        # print(self.nums)
-        ans=self.nums[self.k]
-        self.k+=1
-        return ans
+        idx=bisect.bisect_right(self.nums,val)
+        self.nums.insert(idx,val)
+        self.n+=1
+        return self.nums[self.n-self.k]
+
 
 # Your KthLargest object will be instantiated and called as such:
 # obj = KthLargest(k, nums)
