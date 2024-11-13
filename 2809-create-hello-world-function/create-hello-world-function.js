@@ -1,5 +1,5 @@
 /**
- * return {Function}
+ * @return {Function}
  */
 var createHelloWorld = function() {
     
