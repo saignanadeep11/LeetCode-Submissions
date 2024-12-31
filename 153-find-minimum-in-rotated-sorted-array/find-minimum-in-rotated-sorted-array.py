@@ -5,7 +5,7 @@ class Solution:
         hi=n-1
         while(lo<=hi):
             mid=(lo+hi)>>1
-            if(nums[lo]<=nums[mid] and nums[mid]<=nums[hi]):
+            if(nums[lo]<=nums[hi]):
                 hi=mid-1
             elif(nums[mid]<nums[hi]):
                 hi=mid
