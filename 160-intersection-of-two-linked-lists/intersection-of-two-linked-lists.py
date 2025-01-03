@@ -5,25 +5,14 @@
 #         self.next = None
 
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        arr=defaultdict()
-        while(headA and headB):
-            if headA in arr:
-                return headA
-            arr[headA]=True
-            headA=headA.next
-            if headB in arr:
-                return headB
-            arr[headB]=True
-            headB=headB.next
-        while(headA):
-            if headA in arr:
-                return headA
-            arr[headA]=True
-            headA=headA.next
-        while(headB):
-            if headB in arr:
-                return headB
-            arr[headB]=True
-            headB=headB.next
-        return 
+    def getIntersectionNode(self, A: ListNode, B: ListNode) -> Optional[ListNode]:
+        a=set()
+        while A:
+            a.add(A)
+            A=A.next
+        while B:
+            k=B
+            if k in a:
+                return k
+            B=B.next
+        return None
